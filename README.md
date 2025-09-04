@@ -153,7 +153,7 @@ The service will start on port 8083 with the mock WMS server enabled by default.
 
 1. **Health Check**:
 ```bash
-curl http://localhost:8083/api/wms/monitor/health
+curl http://localhost:9000/api/wms/monitor/health
 ```
 
 2. **Create a Test Order** (via Kafka):
