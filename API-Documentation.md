@@ -7,7 +7,7 @@ The WMS Adapter Service provides REST API endpoints for package management, moni
 ## Base URL
 
 ```
-http://localhost:8083/api/wms
+http://localhost:9000/api/wms
 ```
 
 ## Authentication
@@ -57,7 +57,7 @@ The service integrates with Keycloak for authentication. Endpoints require appro
 
 **Example:**
 ```bash
-curl -X GET "http://localhost:8083/api/wms/packages/TRK-001" \
+curl -X GET "http://localhost:9000/api/wms/packages/TRK-001" \
   -H "Authorization: Bearer {token}"
 ```
 
@@ -113,7 +113,7 @@ curl -X GET "http://localhost:8083/api/wms/packages/TRK-001" \
 
 **Example:**
 ```bash
-curl -X GET "http://localhost:8083/api/wms/packages/TRK-001/history" \
+curl -X GET "http://localhost:9000/api/wms/packages/TRK-001/history" \
   -H "Authorization: Bearer {token}"
 ```
 
@@ -144,7 +144,7 @@ Package status updated successfully
 
 **Example:**
 ```bash
-curl -X PUT "http://localhost:8083/api/wms/packages/TRK-001/status?status=SHIPPED&location=IN_TRANSIT&notes=Package%20shipped%20via%20carrier" \
+curl -X PUT "http://localhost:9000/api/wms/packages/TRK-001/status?status=SHIPPED&location=IN_TRANSIT&notes=Package%20shipped%20via%20carrier" \
   -H "Authorization: Bearer {token}"
 ```
 
@@ -173,7 +173,7 @@ Order cancelled successfully
 
 **Example:**
 ```bash
-curl -X DELETE "http://localhost:8083/api/wms/packages/TRK-001?reason=Customer%20request" \
+curl -X DELETE "http://localhost:9000/api/wms/packages/TRK-001?reason=Customer%20request" \
   -H "Authorization: Bearer {token}"
 ```
 
@@ -204,7 +204,7 @@ curl -X DELETE "http://localhost:8083/api/wms/packages/TRK-001?reason=Customer%2
 
 **Example:**
 ```bash
-curl -X GET "http://localhost:8083/api/wms/monitor/health"
+curl -X GET "http://localhost:9000/api/wms/monitor/health"
 ```
 
 ---
@@ -234,7 +234,7 @@ curl -X GET "http://localhost:8083/api/wms/monitor/health"
 
 **Example:**
 ```bash
-curl -X GET "http://localhost:8083/api/wms/monitor/status"
+curl -X GET "http://localhost:9000/api/wms/monitor/status"
 ```
 
 ---
@@ -267,7 +267,7 @@ curl -X GET "http://localhost:8083/api/wms/monitor/status"
 
 **Example:**
 ```bash
-curl -X GET "http://localhost:8083/api/wms/monitor/test-wms"
+curl -X GET "http://localhost:9000/api/wms/monitor/test-wms"
 ```
 
 ---
@@ -300,7 +300,7 @@ curl -X GET "http://localhost:8083/api/wms/monitor/test-wms"
 
 **Example:**
 ```bash
-curl -X GET "http://localhost:8083/api/wms/monitor/test-kafka"
+curl -X GET "http://localhost:9000/api/wms/monitor/test-kafka"
 ```
 
 ---
