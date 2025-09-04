@@ -27,7 +27,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @ConditionalOnProperty(name = "wms.mock.enabled", havingValue = "true", matchIfMissing = false)
 public class MockWmsServer {
 
-    private static final int DEFAULT_PORT = 9000;
+    private static final int DEFAULT_PORT = 9999;
     private final AtomicBoolean running = new AtomicBoolean(false);
     private ServerSocket serverSocket;
     private ExecutorService executorService;
@@ -143,8 +143,6 @@ public class MockWmsServer {
 
     private WmsTcpMessage handleOrderMessage(WmsTcpMessage request) {
         String operation = request.getOperation();
-        String trackingId = request.getTrackingId();
-        String orderId = request.getOrderId();
         
         switch (operation.toUpperCase()) {
             case "CREATE":

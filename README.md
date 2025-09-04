@@ -147,7 +147,7 @@ cd WMS
 ./mvnw spring-boot:run
 ```
 
-The service will start on port 8083 with the mock WMS server enabled by default.
+The service will start on port 9000 with the mock WMS server enabled by default.
 
 ### Testing the Service
 
@@ -172,7 +172,7 @@ curl http://localhost:9000/api/wms/monitor/health
 
 3. **Track Package**:
 ```bash
-curl http://localhost:8083/api/wms/packages/TRK-001
+curl http://localhost:9000/api/wms/packages/TRK-001
 ```
 
 ## Development

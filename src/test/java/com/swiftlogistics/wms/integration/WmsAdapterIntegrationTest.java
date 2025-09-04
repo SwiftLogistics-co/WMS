@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.kafka.test.context.EmbeddedKafka;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -25,6 +27,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureWebMvc
 @ActiveProfiles("test")
+@DirtiesContext
+@EmbeddedKafka(
+    partitions = 1,
+    brokerProperties = { "listeners=PLAINTEXT://localhost:0", "port=0" }
+)
 @TestPropertySource(properties = {
     "spring.kafka.consumer.auto-offset-reset=earliest",
     "spring.kafka.consumer.group-id=wms-adapter-test-group",

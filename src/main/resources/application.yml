@@ -48,6 +48,12 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_URL:http://localhost:8080}/realms/swifttrack
+
 # WMS Adapter specific configuration
 wms:
   mock:
@@ -108,7 +114,7 @@ management:
         enabled: true
 
 server:
-  port: ${WMS_ADAPTER_PORT:8083}
+  port: ${WMS_ADAPTER_PORT:9000}
   
   warehouse:
     default-capacity: 1000
