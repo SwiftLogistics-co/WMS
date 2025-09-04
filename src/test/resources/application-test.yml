@@ -1,0 +1,55 @@
+# Test configuration for WMS Adapter Service
+spring:
+  application:
+    name: wms-adapter-service-test
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+    
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  kafka:
+    bootstrap-servers: localhost:19092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: wms-adapter-test-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+
+wms:
+  mock:
+    enabled: true
+  legacy:
+    host: localhost
+    port: 8889
+    connection-timeout: 2000
+    read-timeout: 5000
+    max-retries: 1
+    retry-delay: 500
+  kafka:
+    topics:
+      warehouse-events: test-warehouse-events
+      package-status: test-package-status
+      dispatch-events: test-dispatch-events
+
+logging:
+  level:
+    com.swiftlogistics.wms: DEBUG
+    org.springframework.kafka: WARN
+    org.hibernate.SQL: DEBUG
